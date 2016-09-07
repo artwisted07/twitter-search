@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/head %>
+  </head>
+
+  <body class="home">
+   <header><% include ./partials/header %></header>
+    
+    <div class="container">
+      <form action="/results" class="form-home">
+        <input type="text" class="form-control input-lg" placeholder="Search..." name="q" required />
+      </form>
+      
+        <% if(searches.length > 0){ %>
+    <h3>Latest Searches</h3>
+    <% } %>
+    <% searches.forEach(function(query, index){ %>
+     <div class="col-sm-6 panel">
+       <a href="/results?q=<%= query.term %>" class="btn btn-block btn-default btn-lg"><%= query.term %></a>
+     </div>
+      
+      
+    <% }) %>
+      
+      
+    </div>
+    
+  
+    
+    <footer>
+      <% include ./partials/footer %>
+    </footer>
+    
+  </body>
+</html>
